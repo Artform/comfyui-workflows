@@ -18,6 +18,8 @@ echo ██║  ██║╚██████╔╝██║ ╚═╝ ██�
 echo ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝    ╚══════╝ ╚═════╝ ╚══════╝ ╚═════╝ 
 echo --------------=======================-----------------
 echo This script will clean up the SCAN and OUTPUT folders.
+timeout /t 2 /nobreak >nul
+
 cd /d "C:\Users\Ahmed\Documents\ComfyUI\input\scan"
 if exist *.png (
     move *.png .\autoshow
