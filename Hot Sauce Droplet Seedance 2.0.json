@@ -1,0 +1,447 @@
+{
+  "id": "c8964ae8-d278-424c-aa8f-6199fa201374",
+  "revision": 0,
+  "last_node_id": 10,
+  "last_link_id": 11,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "LoadImage",
+      "pos": [
+        1709.2897510174566,
+        83.75058138079834
+      ],
+      "size": [
+        282.34375,
+        368
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            5,
+            7
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "d441d4aa7e44d160ae8bdbcbb9a6f01b3cf2420aa9156c8e3e2e8a23f1e963a7.png",
+        "image"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "GeminiNode",
+      "pos": [
+        2420,
+        80
+      ],
+      "size": [
+        464.515625,
+        550.40625
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "showAdvanced": true,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 9
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "video",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": null
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "GEMINI_INPUT_FILES",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GeminiNode"
+      },
+      "widgets_values": [
+        "Make a 15-second video sequence of some Mexican hot sauce drop popping out of this bottle and then flying through this restaurant, passing by customers and the cooks in very interesting situations. Finally it lands at a table where there are tacos and the drop falls into the taco. Have the camera quite close to the droplet of hot sauce as it's floating around but with a wide, bit of a forced perspective kind of view. Have the bottle of hot sauce in view at end next to the taco as if its a ad. ",
+        "gemini-3-1-pro",
+        66746703903294,
+        "fixed",
+        "You are a cinematic prompt generator. Your task is to convert user ideas into structured prompts for high-fidelity video generation using a strict format and physically grounded cinematic logic. Always output using exactly these five sections in this order: Subject, Action, Camera, Style, Constraints. Do not include any extra commentary, explanations, or text outside these sections.\n\nSubject: Define a single dominant subject unless the user explicitly requests multiple. Describe the subject in precise visual detail including physical traits, clothing, and distinguishing features. Maintain subject identity consistently throughout the entire sequence and do not introduce new primary subjects.\n\nAction: This is the most important section. All motion must be physically grounded and follow clear cause-and-effect logic. Structure the entire sequence as a continuous timeline using explicit timestamps formatted like 0.0–X.Xs. Actions must flow as a chain: start, progression, escalation, peak, recovery, continuation. The subject must remain in continuous motion unless explicitly stated otherwise. Include environmental interaction where the subject affects surroundings (collisions, displacement, shifting objects), and those surroundings react accordingly. Incorporate instability, loss of balance, and recovery where appropriate. Add micro-detail layering such as particles, fabric movement, subtle adjustments, and secondary reactions. Avoid vague, symbolic, or abstract actions. No teleportation or discontinuity.\n\nCamera: Always specify shot size, angle, and movement. Ensure the camera maintains spatial continuity with no cuts unless explicitly requested. The subject must remain clearly visible and trackable at all times. Camera motion must feel physically plausible, including inertia and subtle shake when appropriate (e.g., at high speed). The camera should enhance depth using foreground, midground, and background parallax.\n\nStyle: Use exactly one strong visual anchor such as a film stock, cinematic style, or artist reference. Do not combine multiple styles. This style must consistently influence lighting, color, texture, and depth of field across the entire sequence.\n\nConstraints: Always include negative prompts such as no distortion, no flicker, no artifacts, no extra limbs or deformities. Include temporal definition specifying total duration and pacing of the shot. Enforce continuity rules including stable lighting direction, coherent shadows, preserved subject identity, and no morphing unless explicitly requested. Include any explicit constraints provided by the user (e.g., snowboard only, no skis or poles).\n\nCinematic principles must always be enforced: physical realism (weight, inertia, momentum), environmental interaction (surfaces and objects react to motion), depth and parallax (layered scene behavior), lighting continuity, and clear visual readability of the subject. Motion should escalate in intensity over time when appropriate.\n\nHard rules: never output anything outside the five required sections, never omit timestamps in the Action section, never introduce multiple subjects unless requested, never use abstract or symbolic motion, never include impossible camera behavior, and never stack multiple styles."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 4,
+      "type": "PreviewAny",
+      "pos": [
+        2914.8253906542086,
+        89.66369433992168
+      ],
+      "size": [
+        460,
+        550
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "id": 6,
+      "type": "SaveVideo",
+      "pos": [
+        3977.0498055727776,
+        89.57062784707972
+      ],
+      "size": [
+        270,
+        330.65625
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 11
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "video/ComfyUI",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "ByteDance2FirstLastFrameNode",
+      "pos": [
+        3465.854047500159,
+        87.85802605812442
+      ],
+      "size": [
+        441.25,
+        436.96875
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "first_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 5
+        },
+        {
+          "name": "last_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ByteDance2FirstLastFrameNode"
+      },
+      "widgets_values": [
+        "Seedance 2.0",
+        "",
+        "480p",
+        "adaptive",
+        7,
+        true,
+        1232325143,
+        "randomize",
+        false,
+        "",
+        ""
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 8,
+      "type": "LoadImage",
+      "pos": [
+        1709.2897510174566,
+        463.7505813807985
+      ],
+      "size": [
+        282.34375,
+        368
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            6,
+            8
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "27587b6a28f1f9a685fd2e00abc6e6b52b43fab7e1a5063d6d3fbf366a6932de.png",
+        "image"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "ImageConcanate",
+      "pos": [
+        2089.2897510174575,
+        173.75058138079822
+      ],
+      "size": [
+        270,
+        158.65625
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 7
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageConcanate"
+      },
+      "widgets_values": [
+        "right",
+        true
+      ]
+    },
+    {
+      "id": 10,
+      "type": "MarkdownNote",
+      "pos": [
+        1247.994748120214,
+        34.53197743541716
+      ],
+      "size": [
+        410.265625,
+        781.71875
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "# Workflow Instructions\n\n1. Upload First and Last frames\n\n2. (Optional) Use the LLM for Prompt Generation  \nThe LLM can help generate a Seedance 2.0–style prompt based on your inputs.  \n- By default Seedance is disabled so that you could run the LLM first.\n- In the Google Gemini node provide a clear description of what you want, including the duration (time).  Gemini will generate a Seedance 2.0–style prompt based on your input.\n- Click Run to execute the LLM.\n\n4. Review and Apply the Prompt  \n- Once you’re happy with the generated prompt, select the Google Gemini node and press Ctrl + B to bypass it.  \n- Go back to the Seedance and Save Video nodes and press Ctrl + B again to enable them.  \n- Paste the generated prompt into the prompt field.\n\n5. Adjust Settings  \nSet your desired resolution, aspect ratio, and video duration in the Seedance node.\n\n6. Generate the Video  \nRun the workflow again to generate your final output.\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    }
+  ],
+  "links": [
+    [
+      1,
+      3,
+      0,
+      4,
+      0,
+      "STRING"
+    ],
+    [
+      5,
+      2,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      6,
+      8,
+      0,
+      7,
+      1,
+      "IMAGE"
+    ],
+    [
+      7,
+      2,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      8,
+      8,
+      0,
+      9,
+      1,
+      "IMAGE"
+    ],
+    [
+      9,
+      9,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ],
+    [
+      11,
+      7,
+      0,
+      6,
+      0,
+      "VIDEO"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "First/Last Frames",
+      "bounding": [
+        1699.2897510174566,
+        13.75058138079838,
+        670.0000000000002,
+        799.0333251953125
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "LLM",
+      "bounding": [
+        2410,
+        10,
+        1016.2344374252048,
+        660.4632370346683
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Seedance 2.0",
+      "bounding": [
+        3455.854047500159,
+        17.858026058124377,
+        846.961155990954,
+        551.5663256862488
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6830134553650705,
+      "offset": [
+        -1203.947198664804,
+        115.29057139598088
+      ]
+    },
+    "frontendVersion": "1.43.16",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
